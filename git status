@@ -1,0 +1,34 @@
+warning: in the working copy of 'build.gradle', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/java/com/example/bulletjournal/domain/Member.java', LF will be replaced by CRLF the next time Git touches it
+[1mdiff --git a/build.gradle b/build.gradle[m
+[1mindex 5f915de..5255c0b 100644[m
+[1m--- a/build.gradle[m
+[1m+++ b/build.gradle[m
+[36m@@ -23,6 +23,7 @@[m [mdependencies {[m
+ 	implementation 'org.springframework.boot:spring-boot-starter-webmvc'[m
+ 	compileOnly 'org.projectlombok:lombok'[m
+ 	runtimeOnly 'com.mysql:mysql-connector-j'[m
+[32m+[m	[32mruntimeOnly 'com.h2database:h2'[m
+ 	annotationProcessor 'org.projectlombok:lombok'[m
+ 	testImplementation 'org.springframework.boot:spring-boot-starter-data-jpa-test'[m
+ 	testImplementation 'org.springframework.boot:spring-boot-starter-validation-test'[m
+[1mdiff --git a/src/main/java/com/example/bulletjournal/domain/Member.java b/src/main/java/com/example/bulletjournal/domain/Member.java[m
+[1mindex c3dd066..b750004 100644[m
+[1m--- a/src/main/java/com/example/bulletjournal/domain/Member.java[m
+[1m+++ b/src/main/java/com/example/bulletjournal/domain/Member.java[m
+[36m@@ -3,6 +3,7 @@[m [mpackage com.example.bulletjournal.domain;[m
+ [m
+ import jakarta.persistence.*;[m
+ import lombok.Getter;[m
+[32m+[m[32mimport lombok.Setter;[m
+ [m
+ import java.util.ArrayList;[m
+ import java.util.Collections;[m
+[36m@@ -11,6 +12,7 @@[m [mimport java.util.Objects;[m
+ [m
+ @Entity[m
+ @Getter[m
+[32m+[m[32m@Setter[m
+ public class Member {[m
+ [m
+     @Id[m
