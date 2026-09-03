@@ -12,7 +12,6 @@ import java.util.Objects;
 
 @Entity
 @Getter
-@Setter
 public class Member {
 
     @Id
@@ -24,6 +23,17 @@ public class Member {
 
     @OneToMany(mappedBy = "member")
     private List<Log> logs = new ArrayList<>();
+
+    protected Member() {
+    }
+
+    public Member(String name) {
+        if (name == null || name.isBlank()) {
+            throw new IllegalArgumentException("회원 이름은 필수입니다.");
+        }
+
+        this.name = name.trim();
+    }
 
     public List<Log> getLogs() {
         return Collections.unmodifiableList(logs);
